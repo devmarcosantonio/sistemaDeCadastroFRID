@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>App Base</title>
+</head>
+<body>
+
+    <h1>Gerenciamento de usuários</h1>
+    <button id="open-modal">Cadastrar Novo Usuário</button>
+
+    <!-- Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>Cadastrar novo Usuário</h2>
+            <form id="formCadastro">
+                <label for="name">Nome de usuário: </label>
+                <input type="text" name="name" id="name" placeholder="Nome">
+                <label for="cpf">CPF de usuário: </label>
+                <input type="text" name="cpf" id="cpf" placeholder="CPF">
+                <div>UID: <span id="UID">Aproxime o cartão RFID...</span></div>
+                <button id="btn-submit" type="submit" class="btn-modal">Cadastrar</button>
+                <div id="close-modal" class="close btn-modal">Voltar</div>
+            </form>
+        </div>
+    </div>
+    <div id="usuarios_cadastrados">
+        <h2>Usuários cadastrados:</h2>
+        <ul id="lista_de_usuarios"></ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
