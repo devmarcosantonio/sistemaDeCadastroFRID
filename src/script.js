@@ -11,7 +11,7 @@ function closeModal() {
 }
 
 async function handleRemoveUser(element) {
-    // Pega o valor do atributo 'key' do botão clicado
+    // Pega o valor do atributo 'userID' do botão clicado
     const id = element.getAttribute('userID');
 
     try {
@@ -102,23 +102,27 @@ formCadastro.addEventListener('submit', async function (event) {
     const cpf = document.getElementById('cpf').value;
     const user = { name, cpf, UID };
 
-    try {
-        const response = await fetch("http://localhost:3333/api/users", {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json',
-            },
-            body: JSON.stringify(user),
-        });
-
-        if (response.ok) {
-            console.log("Usuário cadastrado com sucesso!");
-            fetchUsuarios(); // Atualiza a lista de usuários após o cadastro
-            closeModal(); // Fecha o modal após o cadastro
-        } else {
-            console.error("Erro ao cadastrar usuário:", response.statusText);
+    if (name && cpf && UID) {
+        try {
+            const response = await fetch("http://localhost:3333/api/users", {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(user),
+            });
+    
+            if (response.ok) {
+                console.log("Usuário cadastrado com sucesso!");
+                fetchUsuarios(); // Atualiza a lista de usuários após o cadastro
+                closeModal(); // Fecha o modal após o cadastro
+            } else {
+                console.error("Erro ao cadastrar usuário:", response.statusText);
+            }
+        } catch (error) {
+            console.error("Erro ao enviar requisição:", error);
         }
-    } catch (error) {
-        console.error("Erro ao enviar requisição:", error);
-    }
+    } 
+
+    
 });

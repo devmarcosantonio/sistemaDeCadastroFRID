@@ -42,10 +42,6 @@ app.whenReady()
     })
 
 
-
-
-
-
 // Log para indicar que a aplicação está esperando por novos cartões
 console.log('Esperando pela leitura do cartão RFID...');
 
